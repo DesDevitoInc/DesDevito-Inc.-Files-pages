@@ -1,0 +1,16 @@
+{
+"companyName": "DrakesGames",
+"productName": "Transilio",
+"productVersion": "1.01",
+"dataUrl": "Transilio_WebGL_v2.data.unityweb",
+"wasmCodeUrl": "Transilio_WebGL_v2.wasm.code.unityweb",
+"wasmFrameworkUrl": "Transilio_WebGL_v2.wasm.framework.unityweb",
+"graphicsAPI": ["WebGL 2.0","WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20",
+"cacheControl": {"default": "must-revalidate"},
+"developmentBuild": false,
+"multithreading": false,
+"unityVersion": "2019.2.11f1"
+}
