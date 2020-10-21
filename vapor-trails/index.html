@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity WebGL Player | Vapor Trails</title>
@@ -9,17 +10,82 @@
     <script src="TemplateData/UnityProgress.js"></script>
     <script src="Build/UnityLoader.js"></script>
     <script>
-      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/Vapor Trails.json", {onProgress: UnityProgress});
+        var unityInstance = UnityLoader.instantiate("unityContainer", "Build/Vapor Trails.json", {
+            onProgress: UnityProgress
+        });
     </script>
-  </head>
-  <body>
+</head>
+
+<body>
     <div class="webgl-content">
-      <div id="unityContainer" style="width: 960px; height: 600px"></div>
-      <div class="footer">
-        <div class="webgl-logo"></div>
-        <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
-        <div class="title">Vapor Trails</div>
-      </div>
+        <div id="unityContainer" style="width: 960px; height: 600px"></div>
+        <div class="footer">
+            <div class="webgl-logo"></div>
+            <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
+            <div class="title">Vapor Trails</div>
+        </div>
     </div>
-  </body>
+
+    <div class="menu">
+        <ul class="menu-options">
+            <li class="menu-option"><a onclick="window.open(window.location.href);">Open game in another window</a></li>
+        </ul>
+    </div>
+
+    <style>
+        .menu {
+            width: 120px;
+            box-shadow: 0 4px 5px 3px rgba(0, 0, 0, 0.2);
+            position: relative;
+            display: none;
+            .menu-options {
+                list-style: none;
+                padding: 10px 0;
+                .menu-option {
+                    font-weight: 500;
+                    font-size: 14px;
+                    padding: 10px 40px 10px 20px;
+                    cursor: pointer;
+                    &:hover {
+                        background: rgba(0, 0, 0, 0.2);
+                    }
+                }
+            }
+        }
+    </style>
+
+    <script>
+        const menu = document.querySelector(".menu");
+        let menuVisible = false;
+
+        const toggleMenu = command => {
+            menu.style.display = command === "show" ? "block" : "none";
+            menuVisible = !menuVisible;
+        };
+
+        const setPosition = ({
+            top,
+            left
+        }) => {
+            menu.style.left = `${left}px`;
+            menu.style.top = `${top}px`;
+            toggleMenu("show");
+        };
+
+        window.addEventListener("click", e => {
+            if (menuVisible) toggleMenu("hide");
+        });
+
+        window.addEventListener("contextmenu", e => {
+            e.preventDefault();
+            const origin = {
+                left: e.pageX,
+                top: e.pageY
+            };
+            setPosition(origin);
+            return false;
+        });
+    </script>
+</body>
+
 </html>
