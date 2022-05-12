@@ -1,7 +1,7 @@
 {
 "companyName": "sevencrane",
 "productName": "Vapor Trails",
-"productVersion": "1.0",
+"productVersion": "0.17.31",
 "dataUrl": "Vapor Trails.data.unityweb",
 "wasmCodeUrl": "Vapor Trails.wasm.code.unityweb",
 "wasmFrameworkUrl": "Vapor Trails.wasm.framework.unityweb",
